@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>திருக்குறள் — Royal Digital Manuscript</title>
+  <meta name="description" content="Explore the timeless wisdom of Thirukkural in a mobile-first royal digital manuscript format.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="app-container" id="app">
+
+    <!-- PAGE 1: THE ROYAL INTRODUCTION -->
+    <div id="page-1" class="page-view active">
+      <header class="hero-section">
+        <!-- Minimal SVG Gold Emblem -->
+        <svg class="royal-emblem" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="4 2"/>
+          <circle cx="32" cy="32" r="24" stroke="#D4AF37" stroke-width="1"/>
+          <path d="M32 14L36.5 25.5L48 27L39 35L41.5 47L32 41L22.5 47L25 35L16 27L27.5 25.5L32 14Z" fill="#D4AF37" opacity="0.85"/>
+        </svg>
+
+        <h1 class="hero-title">திருக்குறள்</h1>
+        <p class="hero-subtitle">Royal Digital Manuscript</p>
+
+        <!-- Thin Ornamental Gold Divider SVG -->
+        <svg class="ornamental-divider" viewBox="0 0 140 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 7H55M85 7H140" stroke="#D4AF37" stroke-width="1"/>
+          <polygon points="70,1 76,7 70,13 64,7" stroke="#D4AF37" fill="#D4AF37" stroke-width="1"/>
+          <circle cx="58" cy="7" r="2" fill="#D4AF37"/>
+          <circle cx="82" cy="7" r="2" fill="#D4AF37"/>
+        </svg>
+      </header>
+
+      <section class="welcome-kural-container">
+        <span class="kural-badge-label">குறள் 1</span>
+        <p class="welcome-kural-tamil">
+          அகர முதல எழுத்தெல்லாம் ஆதி<br>
+          பகவன் முதற்றே உலகு
+        </p>
+        <p class="welcome-kural-english">
+          “As the letter A is the first of all letters, so the Eternal is first in the world.”
+        </p>
+      </section>
+
+      <svg class="ornamental-divider-subtle" viewBox="0 0 100 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 5H40M60 5H100" stroke="#E7D9A8" stroke-width="1"/>
+        <circle cx="50" cy="5" r="3" fill="#D4AF37"/>
+      </svg>
+
+      <p class="intro-description">
+        Thirukkural is the immortal masterpiece of Thiruvalluvar, containing 1330 Kurals arranged into 133 Athikarams under the three great divisions—Aram, Porul, and Inbam. It is a timeless guide to virtue, wisdom, governance, and human life.
+      </p>
+
+      <div class="cta-container">
+        <button id="btn-explore" class="btn-royal-primary" type="button">
+          திருக்குறளை ஆராய்
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PAGE 2: SEARCH THE WISDOM -->
+    <div id="page-2" class="page-view">
+      <header class="page-header-small">
+        <h2 class="page-header-title">ஞானத்தைத் தேடுக</h2>
+        <p class="page-header-sub">Search the Wisdom</p>
+        <svg class="ornamental-divider-subtle" viewBox="0 0 100 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 5H40M60 5H100" stroke="#E7D9A8" stroke-width="1"/>
+          <circle cx="50" cy="5" r="3" fill="#D4AF37"/>
+        </svg>
+      </header>
+
+      <section class="search-section">
+        <!-- Segmented Selector -->
+        <div class="segmented-control" role="tablist">
+          <button class="segment-btn active" data-type="number" role="tab" id="tab-number">Kural Number</button>
+          <button class="segment-btn" data-type="athikaram" role="tab" id="tab-athikaram">Athikaram</button>
+          <button class="segment-btn" data-type="title" role="tab" id="tab-title">Kural Title</button>
+        </div>
+
+        <form id="search-form" onsubmit="return false;">
+          <div class="input-group">
+            <label class="input-label" id="input-label" for="search-input">Search Kural</label>
+            <input 
+              type="text" 
+              id="search-input" 
+              class="royal-input" 
+              placeholder="Enter Kural Number (1–1330)" 
+              required 
+              autocomplete="off"
+            />
+          </div>
+
+          <button type="submit" id="btn-search" class="btn-search">தேடு</button>
+        </form>
+
+        <div id="search-spinner" class="spinner-container">
+          <div class="royal-spinner"></div>
+          <p style="font-size: 0.85rem; color: var(--bronze-brown);">தேடப்படுகிறது...</p>
+        </div>
+
+        <!-- Parchment Error Notification Card -->
+        <div id="error-card" class="error-card">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" style="margin-bottom: 6px;">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <h3 class="error-title">திருக்குறள் கிடைக்கவில்லை</h3>
+          <p class="error-message">No matching Kural was found. Please verify the Kural Number, Athikaram, or Title.</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 16px;">
+          <a id="btn-back-to-home" class="nav-back-link">← முகப்பு (Home)</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- PAGE 3: KURAL MANUSCRIPT -->
+    <div id="page-3" class="page-view">
+      <section class="manuscript-wrapper">
+        <div class="manuscript-card" id="manuscript-card">
+          <div class="manuscript-header">
+            <p class="manuscript-paal" id="display-paal">அறத்துப்பால்</p>
+            <h2 class="manuscript-athikaram" id="display-athikaram">கடவுள் வாழ்த்து</h2>
+            <span class="manuscript-number" id="display-number">குறள் 1</span>
+          </div>
+
+          <svg class="ornamental-divider-subtle" viewBox="0 0 100 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 5H40M60 5H100" stroke="#E7D9A8" stroke-width="1"/>
+            <circle cx="50" cy="5" r="3" fill="#D4AF37"/>
+          </svg>
+
+          <!-- Tamil Kural Typography -->
+          <div class="manuscript-kural-box">
+            <span class="manuscript-kural-line" id="display-line1">அகர முதல எழுத்தெல்லாம் ஆதி</span>
+            <span class="manuscript-kural-line" id="display-line2">பகவன் முதற்றே உலகு</span>
+          </div>
+
+          <!-- English Translation -->
+          <div class="manuscript-meaning-box">
+            <p class="meaning-label">English Meaning</p>
+            <p class="meaning-text" id="display-meaning-en">
+              “As the letter A is the first of all letters, so the Eternal is first in the world.”
+            </p>
+          </div>
+        </div>
+
+        <div class="manuscript-actions">
+          <button id="btn-back-to-search" class="btn-royal-primary" type="button">
+            ← Back to Search
+          </button>
+          <button id="btn-search-another" class="btn-secondary" type="button">
+            Search Another Kural
+          </button>
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
