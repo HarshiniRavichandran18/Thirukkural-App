@@ -17,7 +17,7 @@ A premium Flask web application that allows users to explore the timeless wisdom
 ## Project Structure
 
 ```text
-thirukkural_app/
+Thirukkural-App/
 ├── app.py
 ├── README.md
 ├── requirements.md
