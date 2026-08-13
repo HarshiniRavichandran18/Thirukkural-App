@@ -12,18 +12,23 @@ A premium Flask web application that allows users to explore the timeless wisdom
 - No SQL, SQLite, or local database
 - Elegant error handling for invalid searches
 
+---
+
 ## Project Structure
 
-
-thirukkural-app/
+```text
+thirukkural_app/
 ├── app.py
-├──requirements.txt
 ├── README.md
+├── requirements.md
 ├── templates/
 │   └── index.html
 └── static/
     ├── style.css/
     └── app.js/
+```
+
+---
 
 
 <img width="1600" height="899" alt="WhatsApp Image 2026-08-14 at 12 07 29 AM" src="https://github.com/user-attachments/assets/db91a527-a0cd-4a12-bd8d-206771654774" />
