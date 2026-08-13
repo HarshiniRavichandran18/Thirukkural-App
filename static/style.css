@@ -1,0 +1,498 @@
+/* ==========================================================================
+   ROYAL THIRUKKURAL EXPLORER — STYLESHEET
+   A Royal Digital Manuscript inspired by Tamil Heritage
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@400;500;600;700&display=swap');
+
+:root {
+  --parchment-bg: #F8F1E5;
+  --royal-emerald: #0B3B36;
+  --temple-gold: #D4AF37;
+  --bronze-brown: #3B2A1A;
+  --divider-gold: #E7D9A8;
+
+  --font-tamil: 'Noto Serif Tamil', serif;
+  --font-english-heading: 'Cormorant Garamond', serif;
+  --font-ui: 'Inter', sans-serif;
+
+  --border-radius-main: 24px;
+  --border-gold-1px: 1px solid var(--temple-gold);
+  --shadow-subtle: 0 10px 30px rgba(59, 42, 26, 0.08), 0 2px 8px rgba(11, 59, 54, 0.05);
+  --transition-smooth: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--parchment-bg);
+  color: var(--bronze-brown);
+  font-family: var(--font-ui);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 12px;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 420px;
+  min-height: calc(100vh - 40px);
+  background-color: var(--parchment-bg);
+  border: var(--border-gold-1px);
+  border-radius: var(--border-radius-main);
+  box-shadow: var(--shadow-subtle);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-view {
+  display: none;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.page-view.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-section {
+  background-color: var(--royal-emerald);
+  color: var(--parchment-bg);
+  text-align: center;
+  padding: 44px 24px 36px 24px;
+  border-bottom: 2px solid var(--temple-gold);
+  position: relative;
+}
+
+.royal-emblem {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 16px auto;
+  color: var(--temple-gold);
+  display: block;
+}
+
+.hero-title {
+  font-family: var(--font-tamil);
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--temple-gold);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-family: var(--font-english-heading);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--parchment-bg);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  opacity: 0.95;
+}
+
+.ornamental-divider {
+  width: 140px;
+  height: 14px;
+  margin: 12px auto;
+  display: block;
+  color: var(--temple-gold);
+}
+
+.ornamental-divider-subtle {
+  width: 100px;
+  height: 10px;
+  margin: 16px auto;
+  display: block;
+  color: var(--divider-gold);
+}
+
+.welcome-kural-container {
+  padding: 32px 24px 24px 24px;
+  text-align: center;
+}
+
+.kural-badge-label {
+  font-family: var(--font-tamil);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--royal-emerald);
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.welcome-kural-tamil {
+  font-family: var(--font-tamil);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--bronze-brown);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.welcome-kural-english {
+  font-family: var(--font-english-heading);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--royal-emerald);
+  line-height: 1.5;
+  padding: 0 8px;
+}
+
+.intro-description {
+  padding: 0 24px 28px 24px;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  color: var(--bronze-brown);
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.cta-container {
+  padding: 0 24px 36px 24px;
+  margin-top: auto;
+}
+
+.btn-royal-primary {
+  width: 100%;
+  padding: 16px 20px;
+  background-color: var(--royal-emerald);
+  color: var(--parchment-bg);
+  border: var(--border-gold-1px);
+  border-radius: 12px;
+  font-family: var(--font-tamil);
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 12px rgba(11, 59, 54, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-royal-primary:hover, .btn-royal-primary:active {
+  background-color: #082D29;
+  border-color: var(--temple-gold);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(11, 59, 54, 0.25);
+}
+
+.page-header-small {
+  padding: 32px 24px 20px 24px;
+  text-align: center;
+}
+
+.page-header-title {
+  font-family: var(--font-tamil);
+  font-size: 1.75rem;
+  color: var(--royal-emerald);
+  margin-bottom: 4px;
+}
+
+.page-header-sub {
+  font-family: var(--font-english-heading);
+  font-size: 1rem;
+  color: var(--bronze-brown);
+}
+
+.search-section {
+  padding: 12px 24px 32px 24px;
+}
+
+.segmented-control {
+  display: flex;
+  background-color: rgba(231, 217, 168, 0.35);
+  border: var(--border-gold-1px);
+  border-radius: 14px;
+  padding: 4px;
+  margin-bottom: 24px;
+  gap: 4px;
+}
+
+.segment-btn {
+  flex: 1;
+  padding: 10px 4px;
+  border: none;
+  background: transparent;
+  color: var(--bronze-brown);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-align: center;
+}
+
+.segment-btn.active {
+  background-color: var(--royal-emerald);
+  color: var(--parchment-bg);
+  box-shadow: 0 2px 6px rgba(11, 59, 54, 0.2);
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--bronze-brown);
+  margin-bottom: 8px;
+}
+
+.royal-input {
+  width: 100%;
+  padding: 16px 18px;
+  background-color: #FFFDF9;
+  border: var(--border-gold-1px);
+  border-radius: 12px;
+  font-family: var(--font-ui);
+  font-size: 0.98rem;
+  color: var(--bronze-brown);
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.royal-input:focus {
+  border-color: var(--royal-emerald);
+  box-shadow: 0 0 0 3px rgba(11, 59, 54, 0.12);
+}
+
+.royal-input::placeholder {
+  color: #8C7864;
+  font-size: 0.92rem;
+}
+
+.btn-search {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--royal-emerald);
+  color: var(--parchment-bg);
+  border: var(--border-gold-1px);
+  border-radius: 12px;
+  font-family: var(--font-tamil);
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 12px rgba(11, 59, 54, 0.15);
+}
+
+.btn-search:hover, .btn-search:active {
+  background-color: #082D29;
+  transform: translateY(-1px);
+}
+
+.error-card {
+  display: none;
+  margin-top: 24px;
+  padding: 20px;
+  background-color: #FDFBF7;
+  border: 1px solid var(--temple-gold);
+  border-radius: 16px;
+  text-align: center;
+  animation: fadeIn 300ms ease;
+}
+
+.error-card.visible {
+  display: block;
+}
+
+.error-title {
+  font-family: var(--font-tamil);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--royal-emerald);
+  margin-bottom: 8px;
+}
+
+.error-message {
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  color: var(--bronze-brown);
+  line-height: 1.6;
+}
+
+.nav-back-link {
+  display: inline-block;
+  margin-top: 20px;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--royal-emerald);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-back-link:hover {
+  color: var(--bronze-brown);
+}
+
+.manuscript-wrapper {
+  padding: 28px 24px 36px 24px;
+}
+
+.manuscript-card {
+  background-color: #FFFDF8;
+  border: var(--border-gold-1px);
+  border-radius: 20px;
+  padding: 32px 20px 28px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+  animation: manuscriptFadeIn 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.manuscript-header {
+  margin-bottom: 18px;
+}
+
+.manuscript-paal {
+  font-family: var(--font-english-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--royal-emerald);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+}
+
+.manuscript-athikaram {
+  font-family: var(--font-tamil);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--bronze-brown);
+  margin-bottom: 6px;
+}
+
+.manuscript-number {
+  font-family: var(--font-english-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--temple-gold);
+  letter-spacing: 1px;
+}
+
+.manuscript-kural-box {
+  margin: 20px 0;
+  padding: 16px 8px;
+}
+
+.manuscript-kural-line {
+  font-family: var(--font-tamil);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--bronze-brown);
+  line-height: 1.8;
+  display: block;
+}
+
+.manuscript-meaning-box {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--divider-gold);
+}
+
+.meaning-label {
+  font-family: var(--font-english-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--royal-emerald);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.meaning-text {
+  font-family: var(--font-english-heading);
+  font-size: 1.12rem;
+  font-style: italic;
+  color: var(--bronze-brown);
+  line-height: 1.6;
+}
+
+.manuscript-actions {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-secondary {
+  width: 100%;
+  padding: 14px;
+  background-color: transparent;
+  color: var(--royal-emerald);
+  border: var(--border-gold-1px);
+  border-radius: 12px;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(11, 59, 54, 0.05);
+}
+
+.spinner-container {
+  display: none;
+  text-align: center;
+  padding: 20px;
+}
+
+.spinner-container.visible {
+  display: block;
+}
+
+.royal-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--divider-gold);
+  border-top-color: var(--royal-emerald);
+  border-radius: 50%;
+  animation: spin 800ms linear infinite;
+  margin: 0 auto 10px auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes manuscriptFadeIn {
+  from { opacity: 0; transform: scale(0.97) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
